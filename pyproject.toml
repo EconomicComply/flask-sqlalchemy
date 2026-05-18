@@ -136,8 +136,21 @@ dependency_groups = ["pre-commit"]
 skip_install = true
 commands = [["pre-commit", "run", "--all-files"]]
 
-[tool.tox.env.py311-min]
-dependency_groups = ["tests-min"]
+[tool.tox.env.tests-min]
+description = "pytest on minimum dependency versions"
+base_python = ["3.14"]
+commands = [
+    [
+        "uv", "pip", "install",
+        "flask==2.2.5",
+        "sqlalchemy==2.0.16",
+        "werkzeug<2.3",
+    ],
+    [
+        "pytest", "-v", "--tb=short", "--basetemp={env_tmp_dir}",
+        {replace = "posargs", default = [], extend = true},
+    ],
+]
 
 [tool.tox.env.typing]
 description = "run static type checkers"
@@ -203,11 +216,6 @@ pre-commit = [
 ]
 tests = [
     "pytest",
-]
-tests-min = [
-    "flask==2.2.5",
-    "sqlalchemy==2.0.16",
-    "werkzeug<2.3",
 ]
 typing = [
     "mypy",
