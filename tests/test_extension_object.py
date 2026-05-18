@@ -56,7 +56,7 @@ def test_get_or_404_kwargs(app: Flask, model_class: t.Any) -> None:
     else:
 
         class User(db.Model):  # type: ignore[no-redef]
-            id = sa.Column(db.Integer, primary_key=True)  # type: ignore[var-annotated]
+            id = sa.Column(db.Integer, primary_key=True)
 
         class Todo(db.Model):  # type: ignore[no-redef]
             id = sa.Column(sa.Integer, primary_key=True)

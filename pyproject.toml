@@ -95,7 +95,7 @@ source = ["flask_sqlalchemy", "tests"]
 source = ["src", "*/site-packages"]
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.12"
 files = ["src", "tests"]
 show_error_codes = true
 pretty = true

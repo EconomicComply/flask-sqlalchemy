@@ -130,7 +130,7 @@ def test_get_bind_inheritance(app: Flask, model_class: t.Any) -> None:
             __mapper_args__ = {"polymorphic_on": type, "polymorphic_identity": "user"}
 
         class Admin(User):  # type: ignore[no-redef]
-            id = sa.Column(sa.ForeignKey(User.id), primary_key=True)  # type: ignore[assignment]
+            id = sa.Column(sa.ForeignKey(User.id), primary_key=True)  # type: ignore[assignment, var-annotated]
             org = sa.Column(sa.String, nullable=False)
             __mapper_args__ = {"polymorphic_identity": "admin"}
 
