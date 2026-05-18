@@ -663,7 +663,7 @@ docs = [
     { name = "sphinx" },
     { name = "sphinxcontrib-log-cabinet" },
 ]
-gha-update = [{ name = "gha-update", marker = "python_full_version >= '3.12'", specifier = ">=0.2.0" }]
+gha-update = [{ name = "gha-update", marker = "python_full_version >= '3.12'" }]
 pre-commit = [
     { name = "pre-commit", marker = "python_full_version >= '3.9'" },
     { name = "pre-commit-uv", marker = "python_full_version >= '3.9'" },
