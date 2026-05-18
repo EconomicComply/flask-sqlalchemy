@@ -153,7 +153,7 @@ dependency_groups = ["gha-update"]
 skip_install = true
 commands = [["gha-update"]]
 
-[tool.tox.env.update-pre_commit]
+[tool.tox.env.update-pre-commit]
 description = "update pre-commit pins"
 labels = ["update"]
 dependency_groups = ["pre-commit"]
