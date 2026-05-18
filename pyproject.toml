@@ -100,12 +100,12 @@ order-by-type = false
 
 [tool.tox]
 envlist = [
-    "py312",
-    "py311-min",
-    "py311",
-    "py310",
-    "py39",
-    "py38",
+    "py3.12",
+    "py3.11-min",
+    "py3.11",
+    "py3.10",
+    "py3.9",
+    "py3.8",
     "style",
     "typing",
     "docs",
