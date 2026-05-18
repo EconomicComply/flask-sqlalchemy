@@ -29,7 +29,7 @@ Source = "https://github.com/pallets-eco/flask-sqlalchemy/"
 Chat = "https://discord.gg/pallets"
 
 [build-system]
-requires = ["flit_core<4"]
+requires = ["flit-core<4"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.module]
@@ -98,7 +98,41 @@ ignore-init-module-imports = true
 force-single-line = true
 order-by-type = false
 
+[tool.uv]
+default-groups = ["dev", "pre-commit", "tests", "typing"]
+
 [tool.gha-update]
 tag-only = [
     "slsa-framework/slsa-github-generator",
+]
+
+[dependency-groups]
+build = [
+    "build",
+]
+dev = [
+    "ruff",
+    "tox",
+    "tox-uv",
+    {include-group = "pre-commit"},
+    {include-group = "docs"},
+    {include-group = "tests"},
+    {include-group = "typing"},
+]
+docs = [
+    "pallets-sphinx-themes",
+    "sphinx",
+    "sphinxcontrib-log-cabinet",
+]
+pre-commit = [
+    "pre-commit ; python_full_version >= '3.9'",
+    "pre-commit-uv ; python_full_version >= '3.9'",
+]
+tests = [
+    "pytest",
+]
+typing = [
+    "mypy",
+    "pyright",
+    "pytest",
 ]
